@@ -27,7 +27,7 @@ clean:
 	rm -rf doc/ ~/.org-timestamps/website-*.cache
 
 doc/site.zip: html pdf sw root
-	cd doc; zip -r site.zip $(ALL_OBJ:doc/%=%)
+	cd doc; zip -r site.zip .
 
 doc/%.html: src/%.org
 	$(call emacs_publish,website-html)
