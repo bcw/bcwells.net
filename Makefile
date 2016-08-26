@@ -1,19 +1,19 @@
 .PHONY: all clean html pdf sw root
 
 ARTICLES_SRC = rotation
-SOFTWARE_SRC = org-tex-define/define.org
-ROOT_SRC = src/define.setup src/index.org
+SOFTWARE_SRC = org-tex-define/define
+ROOT_SRC = define.setup index.org
 
-HTML_OBJ = $(ARTICLES_SRC:src/articles/%.org=doc/articles/%.html)
-PDF_OBJ  = $(ARTICLES_SRC:src/articles/%.org=doc/articles/%.pdf)
+HTML_OBJ = $(ARTICLES_SRC:%=doc/articles/%.html)
+PDF_OBJ  = $(ARTICLES_SRC:%=doc/articles/%.pdf)
 SW_OBJ   = \
-	$(SOFTWARE_SRC:src/software/%.org=doc/software/%.org) \
-	$(SOFTWARE_SRC:src/software/%.org=doc/software/%.html) \
-	$(SOFTWARE_SRC:src/software/%.org=doc/software/%.pdf)
-ROOT_OBJ = $(ROOT_SRC:src/%=doc/%)
+	$(SOFTWARE_SRC:%=doc/software/%.org) \
+	$(SOFTWARE_SRC:%=doc/software/%.html) \
+	$(SOFTWARE_SRC:%=doc/software/%.pdf)
+ROOT_OBJ = $(ROOT_SRC:%=doc/%)
 ALL_OBJ = $(HTML_OBJ) $(PDF_OBJ) $(SW_OBJ) $(ROOT_OBJ)
 
-emacs_publish = emacs -l publish.el --eval '(and (org-publish "'$(1)'") (save-buffers-kill-terminal))'
+emacs_publish = emacs -l publish.el --eval '(and (org-publish "$(1)") (save-buffers-kill-terminal))'
 
 # note: the order from here on matters!
 
@@ -27,7 +27,7 @@ clean:
 	rm -rf doc/ ~/.org-timestamps/website-*.cache
 
 doc/site.zip: html pdf sw root
-	cd doc; git archive -o site.zip HEAD $(ALL_OBJ)
+	cd doc; git archive -o site.zip HEAD $(ALL_OBJ:doc/%=%)
 
 doc/%.html: src/%.org
 	$(call emacs_publish,website-html)
