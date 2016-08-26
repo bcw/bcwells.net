@@ -1,0 +1,3 @@
+[submodule "src/software/org-tex-define"]
+	path = src/software/org-tex-define
+	url = https://github.com/bcw/org-tex-define
