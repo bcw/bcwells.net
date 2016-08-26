@@ -15,7 +15,7 @@
 	 :publishing-directory ,(concat default-directory "doc/articles/")
 	 :publishing-function org-latex-publish-to-pdf
 	 :section-numbers nil)
-	("website-software"
+	("website-sw"
 	 :base-directory ,(concat default-directory "src/software/")
 	 :base-extension "org\\|html\\|pdf"
 	 :publishing-directory ,(concat default-directory "doc/software/")
@@ -26,7 +26,5 @@
 	 :base-extension "org\\|setup"
 	 :publishing-directory ,(concat default-directory "doc/")
 	 :publishing-function org-publish-attachment)
-	("website" :components ("website-root" "website-software"
+	("website" :components ("website-root" "website-sw"
 				"website-html" "website-pdf"))))
-
-(org-publish "website")
