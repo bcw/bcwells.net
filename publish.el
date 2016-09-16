@@ -1,30 +1,42 @@
 (require 'ox-publish)
 
-(setq org-publish-project-alist
-      `(("website-html"
-	 :base-directory ,(concat default-directory "src/")
-	 :base-extension "org"
-	 :exclude "software"
-	 :publishing-directory ,(concat default-directory "doc/")
-	 :publishing-function org-html-publish-to-html
-	 :section-numbers nil
-	 :recursive t)
-	("website-pdf"
-	 :base-directory ,(concat default-directory "src/articles/")
-	 :base-extension "org"
-	 :publishing-directory ,(concat default-directory "doc/articles/")
-	 :publishing-function org-latex-publish-to-pdf
-	 :section-numbers nil)
-	("website-sw"
-	 :base-directory ,(concat default-directory "src/software/")
-	 :base-extension "org\\|html\\|pdf"
-	 :publishing-directory ,(concat default-directory "doc/software/")
-	 :publishing-function org-publish-attachment
-	 :recursive t)
-	("website-root"
-	 :base-directory ,(concat default-directory "src/")
-	 :base-extension "org\\|setup"
-	 :publishing-directory ,(concat default-directory "doc/")
-	 :publishing-function org-publish-attachment)
-	("website" :components ("website-root" "website-sw"
-				"website-html" "website-pdf"))))
+(setq org-publish-use-timestamps-flag nil)
+
+(let (my-dir default-directory)
+  (setq org-publish-project-alist
+	`(("all-org"
+	   :base-directory ,(concat my-dir "src/")
+	   :base-extension "org"
+	   :exclude "blurb\\|README"
+	   :publishing-directory ,(concat my-dir "doc/")
+	   :publishing-function org-publish-attachment
+	   :recursive t)
+	  ("index-html"
+	   :base-directory ,(concat my-dir "src/")
+	   :publishing-directory ,(concat my-dir "doc/")
+	   :publishing-function org-html-publish-to-html
+	   :section-numbers nil)
+	  ("articles-html"
+	   :base-directory ,(concat my-dir "src/articles/")
+	   :publishing-directory ,(concat my-dir "doc/articles/")
+	   :publishing-function org-html-publish-to-html
+	   :section-numbers nil)
+	  ("articles-pdf"
+	   :base-directory ,(concat my-dir "src/articles/")
+	   :publishing-directory ,(concat my-dir "doc/articles/")
+	   :publishing-function org-latex-publish-to-pdf
+	   :section-numbers nil)
+	  ("software-docs"
+	   :base-directory ,(concat my-dir "src/software/")
+	   :base-extension "html\\|pdf"
+	   :exclude "README"
+	   :publishing-directory ,(concat my-dir "doc/software/")
+	   :publishing-function org-publish-attachment
+	   :recursive t)
+	  ("site" :components ("all-org"
+			       "index-html"
+			       "articles-html"
+			       "articles-pdf"
+			       "software-docs")))))
+
+(org-publish "site")

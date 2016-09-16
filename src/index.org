@@ -1,25 +1,64 @@
 #+TITLE: Brian C. Wells' Homepage -- bcwells.net
-
-- Last Updated :: August 26, 2016
+#+OPTIONS: toc:1
 
 Hi.  I am Brian C. Wells, and this is my personal website.  I intend
 to publish software and articles about whatever interests me: mostly
 computer science, mathematics, and economics/politics.
 
-I am an Associate Member of the [[https://www.fsf.org/][Free Software Foundation]], which simply
-means I donate $10/month to help them develop all their great
-software.  I use 100% free software Operating Systems exclusively.  My
+#+ATTR_HTML: :alt FSF member since 2016-01-19
+[[http://static.fsf.org/nosvn/associate/crm/325678.png]]
+
+Since January of 2016, I have been an Associate Member of the [[https://www.fsf.org/][Free
+Software Foundation]], which simply means I donate $10/month to help
+them develop all their great software (and advocate for software
+freedom!).  I use a 100% free software Operating System (OS).  My
 laptop computer runs [[https://trisquel.info/][Trisquel GNU/Linux]] --- based on Ubuntu (and
-therefore also Debian), but with /all non-free software removed/.  I
-buy most of my hardware from [[https://www.thinkpenguin.com/][ThinkPenguin]], which allows me to run a
-100% free OS like Trisquel without significant compatibility problems.
-On my cell phone, I run [[http://www.replicant.us/][Replicant]], another fully free OS --- based on
-Android, but again with all non-free software removed.  Recently, I
-canceled my Netflix subscription because I am tired of financially
-supporting a service that I can only actually use on some device that
-I supposedly "own" and yet they have stolen my right to control.
+therefore also Debian), but with /all non-free software removed/.
+Until very recently, I bought most hardware, including laptops, from
+[[https://www.thinkpenguin.com/][ThinkPenguin]]; but after reading the [[https://libreboot.org/faq/][Libreboot FAQ]] (if you read nothing
+else, read that!), I have decided to buy only computers which run free
+boot firmware (in addition to a fully free OS).  On my cell phone, I
+run [[http://www.replicant.us/][Replicant]], another fully free OS --- based on Android, but again
+with all non-free software removed.  I also canceled my Netflix
+subscription because I am tired of financially supporting a "service"
+that I can only actually use on some device that I supposedly "own"
+and yet they have stolen my right to control.  I'm some years late to
+the party, admittedly; but I'd still recommend [[https://www.fsf.org/blogs/community/cancel-netflix-if-you-value-freedom][you cancel Netflix too]]!
 
 * News
+
+** September 15, 2016: In Which I Learn Why Libreboot is Important
+
+As mentioned above, the [[https://libreboot.org/faq/][Libreboot FAQ]] is definitely worth reading.
+It's scary, but you're always better off knowing where you are than
+sticking your head in the sand.  For those who want a summary:
+apparently /both/ Intel and AMD have completely hamstrung our ability
+to run even modestly secure computers.  By which I mean, they have
+*intentionally designed all modern computers* so that they are capable
+of being *totally controlled by third parties* via the Internet, and
+there is *technically nothing that can be done about it*.  The only
+solution at present is to completely *avoid all Intel hardware made
+after 2008*, and *all AMD hardware made after 2013*.
+
+Unfortunately, that means we are currently faced with a stark choice:
+
+1. abandon all hope of using an even modestly secure computer, in
+   favor of a computer that looks "nice" and "modern"; or
+
+2. use Libreboot with somewhat old hardware, in favor of having the
+   potential to be secure (although certainly not the guarantee!).
+
+Until I read the Libreboot FAQ, for some reason I had thought that it
+was possible to find some "middle ground", to be more secure than most
+and still have a nice-looking, modern PC.  But it is now clear to me
+that that is /not/ possible.  Any computer that uses modern hardware
+is /completely incapable/ of resisting (at least) this type of attack.
+All it takes is /one/ group of people who have the knowledge and
+desire to pull it off.  And such groups exist both inside and outside
+your own government.  Then, once they figure out how to crack into
+your computer, it's just a matter of time before it spreads to other
+similarly-minded groups, and widely exploited.  (By "corruption", in
+this case bribery of individuals, if not by any other way.)
 
 ** August 26, 2016: Something Useful!
 
@@ -72,3 +111,27 @@ article that uses [[org-tex-define]].
 * Contact
 
 You can send email to my first name (Brian) at this domain.
+* Colophon
+
+This site was made using the [[http://orgmode.org/][Org mode]] of [[https://www.gnu.org/software/emacs/][GNU Emacs]], together with an
+Emacs Lisp file which sets up the corresponding Org mode projects and
+a Makefile which is used by GNU Make to run the publishing functions.
+Rather than publishing directly to the server, however, I prefer to
+first "publish" locally so I can review the output.  The Makefile and
+zip utility also generate a compressed file with all the output.  Once
+I am satisfied, I upload [[file:site.zip]] manually and decompress it.  (I
+also leave it there, so if you want a copy of the final product only,
+that is one option for you.) Another advantage of this somewhat
+convoluted process is that I do not need an SSH account on the web
+server (for my webhost, getting that requires to jump through some
+hoops I can't be bothered to do yet).
+
+If you want the Org mode source for a single webpage, I also include
+that in my publishing configuration.  So just replace the ~.html~ with
+~.org~ in any of the URLs (~index.org~ for URLs that end in a slash).
+If you would like a copy of the /whole/ source code, including the
+Emacs Lisp configuration and Makefile I mentioned above, then you can
+find it in [[https://github.com/bcw/bcwells.net][this GitHub repository]].  I hereby license it under GNU
+AGPLv3+, so you can copy and modify it in any way and for any reason,
+as long as you (1) give credit (acknowledgement for work) where due
+and (2) let others do all the same things you can do.
