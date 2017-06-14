@@ -11,82 +11,31 @@ computer science, mathematics, and economics/politics.
 Since January of 2016, I have been an Associate Member of the [[https://www.fsf.org/][Free
 Software Foundation]], which simply means I donate $10/month to help
 them develop all their great software (and advocate for software
-freedom!).  I use a 100% free software Operating System (OS).  My
-laptop computer runs [[https://trisquel.info/][Trisquel GNU/Linux]] --- based on Ubuntu (and
-therefore also Debian), but with /all non-free software removed/.
-Until very recently, I bought most hardware, including laptops, from
-[[https://www.thinkpenguin.com/][ThinkPenguin]]; but after reading the [[https://libreboot.org/faq/][Libreboot FAQ]] (if you read nothing
-else, read that!), I have decided to buy only computers which run free
-boot firmware (in addition to a fully free OS).  On my cell phone, I
-run [[http://www.replicant.us/][Replicant]], another fully free OS --- based on Android, but again
-with all non-free software removed.  I also canceled my Netflix
-subscription because I am tired of financially supporting a "service"
-that I can only actually use on some device that I supposedly "own"
-and yet they have stolen my right to control.  I'm some years late to
-the party, admittedly; but I'd still recommend [[https://www.fsf.org/blogs/community/cancel-netflix-if-you-value-freedom][you cancel Netflix too]]!
+freedom!).  Until recently, I used a 100% free software Operating
+System (OS): [[https://trisquel.info/][Trisquel GNU/Linux]]. However Trisquel has not been updated
+for a long time (according to the website, which I have no reason to
+doubt, the last major version was released in November
+2014). Therefore I have switched back to [[https://www.debian.org/][Debian GNU/Linux]], which I
+used before learning about Trisquel.
+
+I still think the [[https://libreboot.org/faq/][Libreboot FAQ]] is well worth a read, and do own an
+older computer which runs Libreboot, but I have to concede that I
+don't use it often, and I more regularly use a modern computer from
+[[https://www.thinkpenguin.com/][ThinkPenguin]]. Hopefully we can eventually have a computer that both
+respects our freedom and is modern/stylish, but I am not going to
+suggest that people abandon modern PCs any more. My cell phone still
+runs [[http://www.replicant.us/][Replicant]], another fully free OS based on Android.
 
 * News
 
-** September 15, 2016: In Which I Learn Why Libreboot is Important
+** June 13, 2017: Migrating to a VPS
 
-As mentioned above, the [[https://libreboot.org/faq/][Libreboot FAQ]] is definitely worth reading.
-It's scary, but you're always better off knowing where you are than
-sticking your head in the sand.  For those who want a summary:
-apparently /both/ Intel and AMD have completely hamstrung our ability
-to run even modestly secure computers.  By which I mean, they have
-*intentionally designed all modern computers* so that they are capable
-of being *totally controlled by third parties* via the Internet, and
-there is *technically nothing that can be done about it*.  The only
-solution at present is to completely *avoid all Intel hardware made
-after 2008*, and *all AMD hardware made after 2013*.
-
-Unfortunately, that means we are currently faced with a stark choice:
-
-1. abandon all hope of using an even modestly secure computer, in
-   favor of a computer that looks "nice" and "modern"; or
-
-2. use Libreboot with somewhat old hardware, in favor of having the
-   potential to be secure (although certainly not the guarantee!).
-
-Until I read the Libreboot FAQ, for some reason I had thought that it
-was possible to find some "middle ground", to be more secure than most
-and still have a nice-looking, modern PC.  But it is now clear to me
-that that is /not/ possible.  Any computer that uses modern hardware
-is /completely incapable/ of resisting (at least) this type of attack.
-All it takes is /one/ group of people who have the knowledge and
-desire to pull it off.  And such groups exist both inside and outside
-your own government.  Then, once they figure out how to crack into
-your computer, it's just a matter of time before it spreads to other
-similarly-minded groups, and widely exploited.  (By "corruption", in
-this case bribery of individuals, if not by any other way.)
-
-** August 26, 2016: Something Useful!
-
-I finally have something to put on this website which I think is
-genuinely useful to someone besides me.  I used Emacs Org mode to
-write an article on how to derive [[https://en.wikipedia.org/wiki/Rotation_matrix][rotation matrices]] by purely
-algebraic methods, and I wanted to publish it in both [[file:articles/rotation.html][HTML]] and [[file:articles/rotation.pdf][PDF]]
-formats.  But since it uses a lot of mathematical notation, I ran into
-a problem that both I and others have had with Org mode: the MathJax
-library (for LaTeX math in HTML) and /real/ LaTeX (for PDF) have
-/slightly/ different expectations for where and how LaTeX macros
-should be defined, and [[http://stackoverflow.com/q/12717654][Org mode does not try to solve the problem]].
-
-Several people have provided work-arounds for the problem, but so far
-they all seem to require either
-
-1. installing a large Emacs Lisp (~.el~) file somewhere, and still
-   quite clunky to use, such as manually updating a dynamic block; or
-2. using only a single very restricted method of defining macros,
-   namely ~\global\def~ inside ~\(...\)~ in an Org mode drawer.
-
-Inspired by [[https://github.com/fniessen/org-macros][another GitHub repository]] to take advantage of Org mode's
-(undocumented?) ability to evaluate Emacs Lisp code in its own native
-macro definitions (at least in the version I tested with), I managed
-to write an Org mode setup file which has neither of these problems.
-The source code is available as an Org mode literate program in [[https://github.com/bcw/org-tex-define][this
-GitHub repository]], the [[file:define.setup][unannotated setup file is here]], and [[rotation]] is
-the article I wrote it for.
+I got tired of not being able to run a server as I see fit, so I am
+migrating my website from shared hosting to [[https://en.wikipedia.org/wiki/Virtual_private_server][virtual private server]]
+(VPS) provider [[https://www.linode.com/][Linode]]. I have taken the opportunity to update some of
+this page to reflect changes made recently, but otherwise I am not
+changing anything on the site yet. It will still be a static site for
+a while, though I may eventually replace it with something else.
 
 * Software
 ** org-tex-define
